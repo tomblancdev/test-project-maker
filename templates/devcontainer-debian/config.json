@@ -1,0 +1,43 @@
+{
+    "name": "Debian Devcontainer",
+    "id": "debian-devcontainer",
+    "description": "Debian based Devcontainer",
+    "actions": [
+        {
+            "id": "copy_files",
+            "description": "Copy base files from template",
+            "args": {
+                "src": "./files",
+                "dest": "."
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace SERVICE_NAME in files",
+            "args": {
+                "files": [
+                    ".devcontainer/docker-compose.dev.yml",
+                    ".devcontainer/devcontainer.json"
+                ],
+                "search": "{SERVICE_NAME}",
+                "replace": {
+                    "fromPrompt": "Enter service name : ",
+                    "required": true,
+                    "regex": "^[a-zA-Z0-9_-]+$"
+                }
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace DEVCONTAINER_NAME in files",
+            "args": {
+                "file": "*",
+                "search": "{DEVCONTAINER_NAME}",
+                "replace": {
+                    "fromPrompt": "Enter devcontainer name : ",
+                    "required": true
+                }
+            }
+        }
+    ]
+}
