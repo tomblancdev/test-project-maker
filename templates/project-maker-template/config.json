@@ -1,0 +1,74 @@
+{
+    "name": "Project Maker Extension",
+    "id": "project-maker-extension",
+    "description": "Base template for Project Maker Extension creation",
+    "actions": [
+        {
+            "id": "copy_files",
+            "description": "Copy base files to create your brand new extension",
+            "args": {
+                "src": "./files",
+                "dest": "./"
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace PROJECT_NAME in README.md",
+            "args": {
+                "file": "./README.md",
+                "search": "{PROJECT_NAME}",
+                "replace": {
+                    "fromProject": "name"
+                }
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace PROJECT_DESCRIPTION in README.md",
+            "args": {
+                "file": "./README.md",
+                "search": "{PROJECT_DESCRIPTION}",
+                "replace": {
+                    "fromProject": "description"
+                }
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace EXTENSION_NAME in config.json",
+            "args": {
+                "file": "./config.json",
+                "search": "{EXTENSION_NAME}",
+                "replace": {
+                    "fromPrompt": "Enter the name of your extension : ",
+                    "required": true
+                }
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace EXTENSION_ID in config.json",
+            "args": {
+                "file": "./config.json",
+                "search": "{EXTENSION_ID}",
+                "replace": {
+                    "fromPrompt": "Enter the id of your extension : ",
+                    "required": true,
+                    "regex": "^[a-z0-9-]+$"
+                }
+            }
+        },
+        {
+            "id": "replace_text",
+            "description": "Replace EXTENSION_DESCRIPTION in config.json",
+            "args": {
+                "file": "./config.json",
+                "search": "{EXTENSION_DESCRIPTION}",
+                "replace": {
+                    "fromPrompt": "Enter the description of your extension : ",
+                    "required": true
+                }
+            }
+        }
+    ]
+}
