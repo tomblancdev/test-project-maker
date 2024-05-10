@@ -1,0 +1,22 @@
+{
+    "name": "pipx",
+    "id": "pipx",
+    "description": "Install and Run Python Applications in Isolated Environments",
+    "buildForTemplates": [
+        "test-debian-devcontainer"
+    ],
+    "requires": [],
+    "actions": [
+        {
+            "id": "add_text",
+            "description": "Add pip to builder",
+            "args": {
+                "file": "Dockerfile",
+                "search": "#{__ADD_BUILD__}",
+                "text": {
+                    "fromFile": "./dockerfile.txt"
+                }
+            }
+        }
+    ]
+}
